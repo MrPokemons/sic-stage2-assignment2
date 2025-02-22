@@ -13,7 +13,7 @@ def home():
 def get_sensor():
     dct = []
     for sensor in sensor_collection.find():
-        dct.append({"timestamp": sensor.get("_id").generation_time, **sensor})
+        dct.append({"timestamp": sensor.get("_id").generation_time.isoformat(), **sensor})
     return json_util.dumps(dct)
 
 @app.post('/sensor')
