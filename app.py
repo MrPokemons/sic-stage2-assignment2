@@ -1,5 +1,5 @@
 from bson import json_util
-from flask import Flask, request, jsonify
+from flask import Flask, request
 from udb import sensor_collection
 from uconfig import HOST, PORT
 
@@ -11,12 +11,16 @@ def home():
 
 @app.get('/sensor')
 def get_sensor():
-    return jsonify(json_util.dumps(sensor_collection.find().to_list()))
+    dct = []
+    for sensor in sensor_collection.find():
+        dct.append({"timestamp": sensor.get("_id").generation_time, **sensor})
+    return json_util.dumps(dct)
 
 @app.post('/sensor')
 def post_sensor():
     payload = request.json
     sensor_collection.insert_one(payload)
+    return {"message": "success"}
 
 
 if __name__ == "__main__":
