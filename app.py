@@ -16,7 +16,7 @@ def home():
 def get_sensor():
     query_result = sensor_collection.find({}, {'_id': 0})
     return Response(
-        bjson.dumps([SensorData.model_validate(sensor).model_dump() for sensor in query_result]),
+        bjson.dumps([SensorData.model_validate(sensor).model_dump(mode='json') for sensor in query_result]),
         status=200,
         mimetype="application/json"
     )
