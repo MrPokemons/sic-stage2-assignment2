@@ -14,7 +14,9 @@ TOKEN = "BBUS-qtusJBMGHKfz4bRZE9wlo8W2YVx8zl"
 
 def send_data(temperature, humidity, light):
     url_ubidots = "http://industrial.api.ubidots.com/api/v1.6/devices/" + DEVICE_ID
-    url_mongodb = "https://4c97-103-125-43-188.ngrok-free.app/sensor"
+    url_mongodb = "https://4c97-103-125-43-188.ngrok-free.app/sensor"  # using ngrok
+    # url_mongodb = "http://localhost:8000/sensor"  # api in localhost:8000
+    # url_mongodb = "http://192.168.1.3:8000/sensor"  # if failed, use this to connect API which hosted Flask global ip based on the laptop
     
     headers = {"Content-Type": "application/json", "X-Auth-Token": TOKEN}
     data = {
