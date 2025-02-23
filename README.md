@@ -1,10 +1,20 @@
+# Samsung Innovation Campus: Stage 2 Assignment 2
+
+| Group Informations  |   |
+|---------------|---------------|
+| Group Code  | UNI422  |
+| Group Name  | rarevolution  |
+| Team  | - Adeline Charlotte Augustinne<br>- Angeline Rachel<br>- Anastashia Ellena Widjaja<br>- Rowen Nicholas    |
+
+---
+
 # Flask IoT Sensor API
 
 This repository provides a simple Flask API to act as an intermediate layer for IoT sensor data storage using MongoDB (via PyMongo). The API allows retrieving and storing sensor data, with optional support for global access through Ngrok.
 
 ## Features
 - Retrieve sensor data from MongoDB.
-- Store IoT sensor data via a RESTful API.
+- Store IoT sensor data via a RESTful API to MongoDB.
 - Automatic Ngrok setup for public access if an authentication token is provided.
 
 ## Installation
